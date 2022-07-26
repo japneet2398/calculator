@@ -24,6 +24,9 @@ export default function Button({
       setQuery(query.slice(0, query.lastIndexOf("+") + 1));
       setResult(intermediate_result);
       return;
+    } else if (ev.target.value == "<-") {
+      setQuery(query.slice(0, query.length - 1));
+      return;
     }
 
     if (query == 0) {
