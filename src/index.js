@@ -22,30 +22,33 @@ function App() {
   };
 
   useEffect(() => {
-    if (intermediate_result) {
+    if (
+      intermediate_result &&
+      !(query.lastIndexOf(operator) == query.length - 1)
+    ) {
       switch (operator) {
         case "+":
           setResult(
             Number(intermediate_result) +
-              Number(query.slice(query.indexOf(operator) + 1))
+              Number(query.slice(query.lastIndexOf(operator) + 1))
           );
           break;
         case "-":
           setResult(
             Number(intermediate_result) -
-              Number(query.slice(query.indexOf(operator) + 1))
+              Number(query.slice(query.lastIndexOf(operator) + 1))
           );
           break;
         case "X":
           setResult(
             Number(intermediate_result) *
-              Number(query.slice(query.indexOf(operator) + 1))
+              Number(query.slice(query.lastIndexOf(operator) + 1))
           );
           break;
         case "/":
           setResult(
             Number(intermediate_result) /
-              Number(query.slice(query.indexOf(operator) + 1))
+              Number(query.slice(query.lastIndexOf(operator) + 1))
           );
           break;
       }
